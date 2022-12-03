@@ -15,4 +15,4 @@ jobs:
       run: mvn test-compile
 
     - name: Test with Maven
-      run: mvn run Demo
+      run: mvn test-test
