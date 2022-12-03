@@ -15,4 +15,4 @@ jobs:
       run: mvn test-compile
 
     - name: Test with Maven
-      run: mvn test-test
+      run: mvn test --file pom.xml
