@@ -14,7 +14,8 @@ import java.util.concurrent.TimeUnit;
 
 public class Demo
 {
-    private WebDriver driver;
+    public WebDriver driver;
+
     @BeforeClass
     public void setUp()
     {
@@ -24,9 +25,9 @@ public class Demo
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--headless");
         driver = new ChromeDriver(options);
-        driver.navigate().to("https://www.google.com");
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(120, TimeUnit.MILLISECONDS);
+        driver.navigate().to("https://www.google.com");
+        driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
     }
     @Test
     public void userLogin()
