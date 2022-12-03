@@ -12,7 +12,7 @@ jobs:
       with:
         java-version: 19
     - name: Build with Maven
-      run: mvn -B package --file pom.xml
+      run: mvn test-compile
 
     - name: Test with Maven
-      run: mvn -B package --file pom.xml test
+      run: java Demo
