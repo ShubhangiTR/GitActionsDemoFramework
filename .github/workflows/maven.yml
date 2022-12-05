@@ -16,13 +16,16 @@ jobs:
         distribution: 'temurin'
         cache: maven
 
-    - name: Write value from Properties-file
-      id: write_property
-      uses: Reedyuk/write-properties@v1.0.1
+    - name: Write value to Properties-file
+      uses: christian-draeger/write-properties@1.1.0
       with:
-          path: './Configuration/config.properties'
-          property: BROWSER
-          value: chrome
+        path: './Configuration/config.properties'
+        property: |
+          BROWSER
+          URL
+        value: |
+          chrome
+          www.google.com
 
     - name: Read value from Properties-file
       id: read_property
