@@ -15,19 +15,22 @@ import java.util.concurrent.TimeUnit;
 public class Demo
 {
     public WebDriver driver;
+    public static ReadConfig rc = new ReadConfig();
+    public static String url = rc.getApplicationURL();
 
     @BeforeClass
-    public void setUp()
-    {
-        WebDriverManager.chromedriver().setup();
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--no-sandbox");
-        options.addArguments("--disable-dev-shm-usage");
-        options.addArguments("--headless");
-        driver = new ChromeDriver(options);
-        driver.manage().window().maximize();
-        driver.navigate().to("https://www.google.com");
-        driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
+    public void setUp() {
+        if (rc.getBrowser().equalsIgnoreCase("chrome")) {
+            WebDriverManager.chromedriver().setup();
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("--no-sandbox");
+            options.addArguments("--disable-dev-shm-usage");
+            options.addArguments("--headless");
+            driver = new ChromeDriver(options);
+            driver.manage().window().maximize();
+            driver.navigate().to(url);
+            driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        }
     }
     @Test
     public void userLogin()
