@@ -29,7 +29,7 @@ public class Demo
             driver = new ChromeDriver(options);
             driver.manage().window().maximize();
             driver.navigate().to(url);
-            driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         }
     }
     @Test
