@@ -21,14 +21,14 @@ public class Demo
     @BeforeClass
     public void setUp() {
         if (rc.getBrowser().trim().equalsIgnoreCase("chrome")) {
-            System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+ "//Drivers//chromedriver.exe");
-            driver = new ChromeDriver();
-            /*WebDriverManager.chromedriver().setup();
-            ChromeOptions options = new ChromeOptions();
+            /*System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+ "//Drivers//chromedriver.exe");
+            driver = new ChromeDriver();*/
+            WebDriverManager.chromedriver().setup();
+            /*ChromeOptions options = new ChromeOptions();
             options.addArguments("--no-sandbox");
             options.addArguments("--disable-dev-shm-usage");
-            options.addArguments("--headless");
-            driver = new ChromeDriver(options);*/
+            options.addArguments("--headless");*/
+            driver = new ChromeDriver();
             driver.manage().window().maximize();
             driver.get(url);
             driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
