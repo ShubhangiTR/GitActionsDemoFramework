@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
 
 public class Demo
 {
-    public static WebDriver driver = new ChromeDriver();
+    public static WebDriver driver;
     public static ReadConfig rc = new ReadConfig();
     public static String url = rc.getApplicationURL();
 
@@ -22,7 +22,7 @@ public class Demo
     public void setUp() {
         if (rc.getBrowser().trim().equalsIgnoreCase("chrome")) {
             System.setProperty("webdriver.chrome.driver", "C:\\Users\\C288758\\Drivers\\chromedriver.exe");
-
+            driver = new ChromeDriver();
             /*WebDriverManager.chromedriver().setup();
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--no-sandbox");
@@ -30,7 +30,7 @@ public class Demo
             options.addArguments("--headless");
             driver = new ChromeDriver(options);*/
             driver.manage().window().maximize();
-            driver.navigate().to(url);
+            driver.get(url);
             driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         }
     }
