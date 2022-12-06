@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
 
 public class Demo
 {
-    public static WebDriver driver;
+    public WebDriver driver;
     public static ReadConfig rc = new ReadConfig();
     public static String url = rc.getApplicationURL();
 
