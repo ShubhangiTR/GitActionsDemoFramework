@@ -21,7 +21,7 @@ public class Demo
     @BeforeClass
     public void setUp() {
         if (rc.getBrowser().trim().equalsIgnoreCase("chrome")) {
-            System.setProperty("webdriver.chrome.driver", "C:\\Users\\C288758\\Drivers\\chromedriver.exe");
+            System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+ "//Drivers//chromedriver.exe");
             driver = new ChromeDriver();
             /*WebDriverManager.chromedriver().setup();
             ChromeOptions options = new ChromeOptions();
